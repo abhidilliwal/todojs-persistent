@@ -6,8 +6,8 @@
 
     var tmplTodoItem = function (todoObj) {
         return `
-            <div x-todo-item="${todoObj.id}">
-                ${todoObj.value}
+            <div x-todo-item="${todoObj.id}" class="todo--item">
+                <span class="todo--item-text">${todoObj.value}</span>
                 <button x-todo-action="delete" data-todo-id="${todoObj.id}">Delete</button>
             </div>
         `.trim();
@@ -26,9 +26,9 @@
 
     function onListClick(ev) {
         var {target} = ev;
-        var action = target.getAttribute("x-todo-action").trim();
+        var action = target.getAttribute("x-todo-action");
 
-        if (action == "delete") {
+        if (action && action.trim() == "delete") {
             removeItem(target.dataset.todoId);
         }
 

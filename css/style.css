@@ -1,0 +1,37 @@
+body {
+}
+
+.main {
+    max-width: 600px;
+    margin: 10% auto;
+}
+
+.inpbox{
+    margin-bottom: 10px;
+}
+
+.inpbox form{
+    display: flex;
+}
+
+.todo--inp-add{
+    flex-grow: 1;
+    margin-right: 2px;
+}
+.todo--inp-add,
+.todo--inp-button{
+    font-size: 2em;
+    padding: 10px;
+}
+
+.todo--item {
+    display: flex;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #7fb9e6;
+    padding: 10px 0px;
+}
+
+.todo--item-text {
+    flex-grow: 1;
+}

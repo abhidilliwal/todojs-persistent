@@ -4,14 +4,16 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
     
         <div class="main">
+            <h1>TODO: Do something today!</h1>
             <div class="inpbox">
                 <form x-todo-form>
-                    <input x-todo-sr-inp type="text" placeholder="Enter something.">
-                    <button type="submit">Add</button>
+                    <input class="todo--inp-add" x-todo-sr-inp type="text" placeholder="Enter something." autofocus>
+                    <button class="todo--inp-button" type="submit">Add</button>
                 </form>
             </div>
             <div class="contentbox">
