@@ -1,4 +1,4 @@
-(function () {
+(function (Model) {
     var $form = document.querySelector("[x-todo-form]");
     var $inp = $form.querySelector("[x-todo-sr-inp]");
     var $list = document.querySelector("[x-todo-list]");
@@ -52,6 +52,19 @@
         $list.appendChild($todoDom);
     }
 
+    function listAll() {
+        Model.getAll().then((data) => {
+            data.forEach(todoItem => {
+                var $todoDom = document.createElement("div");
+                $todoDom.innerHTML = tmplTodoItem(todoItem);
+
+                $list.appendChild($todoDom);
+            });
+        });
+    }
+
+    listAll();
+
     $form.addEventListener("submit", onAddTodo);
     $list.addEventListener("click", onListClick);
-}());
+}(window.Model));
