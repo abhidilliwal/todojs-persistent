@@ -50,8 +50,11 @@ window.Model = (function () {
         });
     }
 
-    function del() {
-
+    function del(id) {
+        var escId = encodeURIComponent(id);
+        return ajax({
+            url: `api/delete.php?id=${escId}`
+        });
     }
 
     function getById () {

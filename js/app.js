@@ -35,21 +35,28 @@
     }
 
     function removeItem(id) {
-        $elemToRemove = $list.querySelector(`[x-todo-item="${id}"]`);
 
-        if ($elemToRemove) {
-            $elemToRemove.remove();
-        }
+        Model.del(id).then(() => {
+
+            $elemToRemove = $list.querySelector(`[x-todo-item="${id}"]`);
+
+            if ($elemToRemove) {
+                $elemToRemove.remove();
+            }
+        });
+
 
     }
 
     function addItem(value) {
         var $todoDom = document.createElement("div");
 
-        ++id;
-        $todoDom.innerHTML = tmplTodoItem({id, value});
+        Model.add({ value }).then((addedTodo) => {
+            $todoDom.innerHTML = tmplTodoItem(addedTodo);
 
-        $list.appendChild($todoDom);
+            $list.appendChild($todoDom);
+        });
+        
     }
 
     function listAll() {
